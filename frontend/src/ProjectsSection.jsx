@@ -1,21 +1,25 @@
-import { useEffect, useState } from "react";
-import { fetchProjects } from "./api";
+import React from "react";
 
 function ProjectsSection() {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
+const projects = [
+  {
+    id: 1,
+    title: "Agdoro Portfolio",
+    description: "My personal portfolio built with React and Vite.",
+    live_url: "https://agdoro-portfolio.vercel.app",
+    github_url: "https://github.com/Arian-yan/agdoro-portfolio"
+  },
+  {
+    id: 2,
+    title: "Student Projects",
+    description: "Various frontend and backend projects.",
+    live_url: "https://github.com/Arian-yan",
+    github_url: "https://github.com/Arian-yan"
+  }
+];
 
-  useEffect(() => {
-    fetchProjects()
-      .then(data => {
-        setProjects(data);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error(err);
-        setLoading(false);
-      });
-  }, []);
+const loading = false;
+
 
   return (
     <section className="projects">
