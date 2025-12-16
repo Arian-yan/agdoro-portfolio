@@ -316,7 +316,7 @@ h1, h2, h3 {
 
 .project-card {
   position: relative;
-  overflow: hidden;
+  z-index: 1;
 }
 
 .project-card::before {
@@ -327,7 +327,9 @@ h1, h2, h3 {
   width: 4px;
   height: 100%;
   background: linear-gradient(#6b4f3f, #a07c63);
+  pointer-events: none;
 }
+
 
 section {
   max-width: 1100px;
@@ -615,5 +617,29 @@ section {
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+.project-card::before,
+.project-card::after {
+  z-index: 0;
+  pointer-events: none;
+}
+
+.project-links {
+  position: relative;
+  z-index: 10;
+}
+
+.project-links a {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.view-project {
+  margin-top: 1rem;
+  display: inline-block;
+  color: #8b6a4f;
+  font-weight: 600;
 }
 
